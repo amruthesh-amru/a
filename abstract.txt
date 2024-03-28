@@ -1,0 +1,59 @@
+ using System;
+ abstract class Shape
+{
+ public abstract double CalculateArea();
+ public abstract double CalculatePerimeter();
+}
+class Circle : Shape
+{
+private double radius;
+public Circle(double radius)
+{
+this.radius = radius;
+}
+public override double CalculateArea()
+{
+return Math.PI * radius * radius;
+}
+public override double CalculatePerimeter()
+{
+return 2 * Math.PI * radius;
+}
+}
+class Triangle : Shape
+{
+private double side1;
+private double side2;
+private double side3;
+public Triangle(double side1, double side2, double side3)
+{
+this.side1 = side1;
+this.side2 = side2;
+this.side3 = side3;
+}
+public override double CalculateArea()
+{
+double s = (side1 + side2 + side3) / 2;
+return Math.Sqrt(s * (s - side1) * (s - side2) * (s - side3));
+}
+public override double CalculatePerimeter()
+{
+return side1 + side2 + side3;
+}
+}
+public class dMain
+{
+public static void Main(string[] args)
+{
+double r = 4.0;
+Circle circle = new Circle(r);
+double ts1 = 3.0, ts2 = 4.0, ts3 = 5.0;
+Triangle triangle = new Triangle(ts1, ts2, ts3);
+Console.WriteLine(“Radius of the Circle: “ + r);
+Console.WriteLine(“Area of the Circle: “ + circle.CalculateArea());
+Console.WriteLine(“Perimeter of the Circle: “ + circle.CalculatePerimeter());
+Console.WriteLine(“\nSides of the Triangle are: “+ ts1 + ‘,’+ ts2 + ‘,&amp;’ + ts3);
+Console.WriteLine(“Area of the Triangle: “ + triangle.CalculateArea());
+Console.WriteLine(“Perimeter of the Triangle: “ + triangle.CalculatePerimeter());
+}
+}

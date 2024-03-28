@@ -1,0 +1,15 @@
+using System;
+
+class Program{
+    
+    public static void Main(string[] args){
+        int[] arr = {1,2,3,4,5};
+        try{
+        int element = arr[6];
+        Console.WriteLine(element);
+            
+        }catch(IndexOutOfRangeException e){
+            Console.WriteLine(e.Message);
+        }
+    }
+}
